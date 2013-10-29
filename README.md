@@ -10,6 +10,15 @@ Requirements
 1. vagrant
 2. this repo
  
+Setup
+--
+
+1. check out this repo
+2. install vagrant
+3. navigate to the folder with the vagrantfile in
+4. type 'vagrant up'
+5. wait...
+
 
 TODO:
 --
