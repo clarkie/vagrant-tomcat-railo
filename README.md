@@ -16,3 +16,5 @@ TODO:
 1. make this a bit more generic
 2. move the railo config into puppet
 3. remove the shell scripts and move them into puppet
+4. remove the hardcoded modules and include them somehow. I had to fix one of them (I can't remember which one now though! doh!)
+
