@@ -1,0 +1,3 @@
+[submodule "modules/nginx"]
+	path = modules/nginx
+	url = https://github.com/jfryman/puppet-nginx.git
