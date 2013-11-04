@@ -34,7 +34,7 @@ nginx::resource::upstream { 'railo':
 nginx::resource::vhost { 'cp2.retailcloud.net':
 	ensure		=> present,
 	proxy		=> 'http://railo',
-	ssl			=> 'true',
+	ssl			=> true,
 	ssl_cert	=> '/vagrant/conf/server.crt',
 	ssl_key		=> '/vagrant/conf/server.key',
 	ssl_port	=> 443,
