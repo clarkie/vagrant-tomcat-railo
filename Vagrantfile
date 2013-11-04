@@ -20,23 +20,17 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--memory", "2048", "--cpus", "4", "--ioapic", "on"]
   end
 
-  # run the bootstrap shell script
-  config.vm.provision :shell, :path => "bootstrap.sh"
-
-  # run the initial tomcat + nginx puppet manifest
   config.vm.provision :puppet do |puppet|
-#    puppet.options = "--verbose --debug"
     puppet.module_path = "modules"
     puppet.manifests_path = "manifests"
-    puppet.manifest_file  = "base.pp"
+    puppet.manifest_file  = "railo.pp"
   end
 
-  # run the tomcat conf puppet manifest
   config.vm.provision :puppet do |puppet|
-    puppet.manifest_file  = "conf.pp"
+    puppet.module_path = "modules"
+    puppet.manifests_path = "manifests"
+    puppet.manifest_file  = "railo-conf.pp"
   end
 
-  # run the railo shell script
-  config.vm.provision :shell, :path => "railo.sh"
 
 end
