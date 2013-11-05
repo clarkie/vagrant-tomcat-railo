@@ -9,6 +9,7 @@ Requirements
 
 1. vagrant
 2. this repo
+3. L:\CP2\ as your webroot on your host pc (or change the Vagrantfile declaration!)
  
 Setup
 --
@@ -22,8 +23,5 @@ Setup
 
 TODO:
 --
-1. make this a bit more generic
-2. move the railo config into puppet
-3. remove the shell scripts and move them into puppet
-4. remove the hardcoded modules and include them somehow. I had to fix one of them (I can't remember which one now though! doh!)
+1. make the nginx vhosts wildcard rather than cp2.retailcloud.net
 

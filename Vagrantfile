@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
 
   # synced/shared folders
   config.vm.synced_folder "L:\\CP2", "/var/www/CP2"
-  config.vm.synced_folder "c:\\certificates", "/usr/share/tomcat7/certs"
+  #config.vm.synced_folder "c:\\certificates", "/usr/share/tomcat7/certs"
 
   # settings for vm
   config.vm.provider :virtualbox do |vb|
