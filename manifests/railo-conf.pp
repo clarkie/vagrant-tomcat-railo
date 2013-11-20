@@ -30,43 +30,14 @@ file { 'catalina.properties':
 }
 
  
-file { 'railo-dir':
-	name	=> '/var/lib/tomcat7/webapps/railo',
+ file{ ['/var/lib/tomcat7/webapps/railo',
+	'/var/lib/tomcat7/webapps/railo/WEB-INF',
+	'/var/lib/tomcat7/webapps/railo/WEB-INF/lib',
+	'/var/lib/tomcat7/webapps/railo/WEB-INF/lib/railo-server',
+	'/var/lib/tomcat7/webapps/railo/WEB-INF/lib/railo-server/context'] : 
 	ensure	=> 'directory',
 	owner	=> 'tomcat7',
 	group	=> 'tomcat7',
-}
-
-file { 'web-inf-dir':
-	name	=> '/var/lib/tomcat7/webapps/railo/WEB-INF',
-	ensure	=> 'directory',
-	owner	=> 'tomcat7',
-	group	=> 'tomcat7',
-	require	=> File['railo-dir'],
-}
-
-file { 'lib-dir':
-	name	=> '/var/lib/tomcat7/webapps/railo/WEB-INF/lib',
-	ensure	=> 'directory',
-	owner	=> 'tomcat7',
-	group	=> 'tomcat7',
-	require	=> File['web-inf-dir'],
-}
-
-file { 'railo-server-dir':
-	name	=> '/var/lib/tomcat7/webapps/railo/WEB-INF/lib/railo-server',
-	ensure	=> 'directory',
-	owner	=> 'tomcat7',
-	group	=> 'tomcat7',
-	require	=> File['lib-dir'],
-}
-
-file { 'context-dir':
-	name	=> '/var/lib/tomcat7/webapps/railo/WEB-INF/lib/railo-server/context',
-	ensure	=> 'directory',
-	owner	=> 'tomcat7',
-	group	=> 'tomcat7',
-	require	=> File['railo-server-dir'],
 }
 
  file { 'railo-server.xml':
@@ -75,6 +46,6 @@ file { 'context-dir':
  	group	=> 'tomcat7',
  	source	=> '/vagrant/conf/railo-server.xml',
  	mode  => 644,
-	require	=> File['context-dir'],
+	require	=> File['/var/lib/tomcat7/webapps/railo/WEB-INF/lib/railo-server/context'],
  	notify	=> Service['tomcat7'],
  }
