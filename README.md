@@ -8,7 +8,7 @@ Requirements
 --
 
 1. vagrant
-2. this repo
+2. clone this repo with --recursive (to get the submodules)
 3. L:\CP2\ as your webroot on your host pc (or change the Vagrantfile declaration!)
  
 Setup
