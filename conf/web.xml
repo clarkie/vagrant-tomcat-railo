@@ -65,6 +65,20 @@
           <servlet-name>GLOBALAMFServlet</servlet-name>
           <url-pattern>/openamf/gateway/*</url-pattern>
  </servlet-mapping>
+  <!-- ===================================================================== -->
+  <!-- Railo REST Servlet - handles Railo's RESTful web services             -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <servlet id="RESTServlet">
+    <description>Railo Servlet for RESTful services</description>
+    <servlet-name>RESTServlet</servlet-name>
+    <servlet-class>railo.loader.servlet.RestServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>RESTServlet</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>
 
   <!-- ======================== Introduction ============================== -->
   <!-- This document defines default values for *all* web applications      -->
@@ -4326,9 +4340,9 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
-<!--    <error-page>  
-        <error-code>404</error-code>  
-        <location>/core/utils/error/404.cfm</location>  
+<!--    <error-page>
+        <error-code>404</error-code>
+        <location>/core/utils/error/404.cfm</location>
     </error-page>-->
 
 </web-app>
