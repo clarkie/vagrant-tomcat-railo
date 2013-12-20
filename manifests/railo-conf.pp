@@ -29,12 +29,12 @@ file { 'catalina.properties':
 	notify	=> Service['tomcat7'],
 }
 
- 
+
  file{ ['/var/lib/tomcat7/webapps/railo',
 	'/var/lib/tomcat7/webapps/railo/WEB-INF',
 	'/var/lib/tomcat7/webapps/railo/WEB-INF/lib',
 	'/var/lib/tomcat7/webapps/railo/WEB-INF/lib/railo-server',
-	'/var/lib/tomcat7/webapps/railo/WEB-INF/lib/railo-server/context'] : 
+	'/var/lib/tomcat7/webapps/railo/WEB-INF/lib/railo-server/context'] :
 	ensure	=> 'directory',
 	owner	=> 'tomcat7',
 	group	=> 'tomcat7',
@@ -49,3 +49,12 @@ file { 'catalina.properties':
 	require	=> File['/var/lib/tomcat7/webapps/railo/WEB-INF/lib/railo-server/context'],
  	notify	=> Service['tomcat7'],
  }
+
+file { 'default.tomcat7':
+	name	=> '/etc/default/tomcat7',
+	owner	=> 'root',
+	group	=> 'root',
+	mode  => 644,
+	source	=> '/vagrant/conf/default.tomcat7',
+	notify	=> Service['tomcat7'],
+}
