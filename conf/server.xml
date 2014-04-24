@@ -37,6 +37,14 @@
                prefix="localhost_access_log." suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />
       </Host>
+      <Host name="monitor.local" appBase="webapps">
+        <Context path="" docBase="/var/www/monitor/" />
+        <Alias>monitor.local</Alias>
+        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+               prefix="localhost_access_log." suffix=".txt"
+               pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+      </Host>
+
     </Engine>
   </Service>
 </Server>

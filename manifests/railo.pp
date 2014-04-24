@@ -36,13 +36,21 @@ nginx::resource::upstream { "railo":
 }
 
 /* nginx vhost using proxy + self signed ssl */
-nginx::resource::vhost { "cp2.retailcloud.net":
-	ensure		=> present,
-	proxy		=> "http://railo",
-	ssl			=> true,
-	ssl_cert	=> "/vagrant/conf/server.crt",
-	ssl_key		=> "/vagrant/conf/server.key",
-	ssl_port	=> 443,
+nginx::resource::vhost {
+	"cp2.retailcloud.net":
+		ensure   => present,
+		proxy    => "http://railo",
+		ssl      => true,
+		ssl_cert => "/vagrant/conf/server.crt",
+		ssl_key  => "/vagrant/conf/server.key",
+		ssl_port => 443;
+	"monitor.local":
+		ensure   => present,
+		proxy    => "http://railo",
+		ssl      => true,
+		ssl_cert => "/vagrant/conf/server.crt",
+		ssl_key  => "/vagrant/conf/server.key",
+		ssl_port => 443;
 }
 
 /* make sure tomcat is installed */
