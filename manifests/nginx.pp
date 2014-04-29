@@ -33,3 +33,11 @@ nginx::resource::location { 'images/branding':
     vhost    => 'cp2.retailcloud.net',
     ssl      => true,
 }
+
+nginx::resource::location { 'favicon.ico':
+    ensure   => present,
+    www_root => '/var/www/CPM',
+    location => '/favicon.ico',
+    vhost    => 'cp2.retailcloud.net',
+    ssl      => true,
+}
