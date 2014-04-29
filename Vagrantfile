@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  
+
   config.vm.box = "precise64"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
@@ -16,6 +16,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "C:/_webroot/Concrete/branches/releases/2014-may/CPM", "/var/www/CPM"
   config.vm.synced_folder "Z:/", "/var/client-filestore"
   config.vm.synced_folder "C:/_webroot/password-lgk/trunk", "/usr/share/tomcat7/certs"
+  config.vm.synced_folder "PATH TO MONITOR SOURCE CODE ON HOST MACHINE", "/var/www/monitor"
 
   # settings for vm
   config.vm.provider :virtualbox do |vb|
