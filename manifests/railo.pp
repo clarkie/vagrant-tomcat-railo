@@ -1,7 +1,7 @@
 # railo.pp
 
 /* define the railo version you want here: */
-$railoVersion = "4.1.1.009"
+$railoVersion = "4.1.2.005"
 $warFileName = "railo-${railoVersion}.war"
 
 /* update all packages */
