@@ -1,1 +1,4 @@
 .vagrant/
+machines/default/virtualbox/action_provision
+machines/default/virtualbox/action_set_name
+machines/default/virtualbox/id
