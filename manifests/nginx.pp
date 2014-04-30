@@ -48,3 +48,18 @@ nginx::resource::location { 'favicon.ico':
 	vhost    => 'cp2.retailcloud.net',
 	ssl      => true,
 }
+
+nginx::resource::location {
+	'jpg_rgb_150px':
+		ensure   => present,
+		www_root => '/var/client-filestore/CPM_ConcretePlatform',
+		location => '/jpg_rgb_150px',
+		vhost    => 'cp2.retailcloud.net',
+		ssl      => true;
+	'jpg_rgb_500px':
+		ensure   => present,
+		www_root => '/var/client-filestore/CPM_ConcretePlatform',
+		location => '/jpg_rgb_500px',
+		vhost    => 'cp2.retailcloud.net',
+		ssl      => true;
+}
