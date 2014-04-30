@@ -16,35 +16,35 @@ nginx::resource::vhost {
 		ssl_cert => "/vagrant/conf/server.crt",
 		ssl_key  => "/vagrant/conf/server.key",
 		ssl_port => 443;
-    "monitor.local":
-        ensure   => present,
-        proxy    => "http://railo",
-        ssl      => true,
-        ssl_cert => "/vagrant/conf/server.crt",
-        ssl_key  => "/vagrant/conf/server.key",
-        ssl_port => 443;
+	"monitor.local":
+		ensure   => present,
+		proxy    => "http://railo",
+		ssl      => true,
+		ssl_cert => "/vagrant/conf/server.crt",
+		ssl_key  => "/vagrant/conf/server.key",
+		ssl_port => 443;
 }
 
 nginx::resource::location { 'css/branding':
-    ensure   => present,
-    www_root => '/var/www/CPM',
-    location => '/css/branding/',
-    vhost    => 'cp2.retailcloud.net',
-    ssl      => true,
+	ensure   => present,
+	www_root => '/var/www/CPM',
+	location => '/css/branding/',
+	vhost    => 'cp2.retailcloud.net',
+	ssl      => true,
 }
 
 nginx::resource::location { 'images/branding':
-    ensure   => present,
-    www_root => '/var/www/CPM',
-    location => '/images/branding/',
-    vhost    => 'cp2.retailcloud.net',
-    ssl      => true,
+	ensure   => present,
+	www_root => '/var/www/CPM',
+	location => '/images/branding/',
+	vhost    => 'cp2.retailcloud.net',
+	ssl      => true,
 }
 
 nginx::resource::location { 'favicon.ico':
-    ensure   => present,
-    www_root => '/var/www/CPM',
-    location => '/favicon.ico',
-    vhost    => 'cp2.retailcloud.net',
-    ssl      => true,
+	ensure   => present,
+	www_root => '/var/www/CPM',
+	location => '/favicon.ico',
+	vhost    => 'cp2.retailcloud.net',
+	ssl      => true,
 }
