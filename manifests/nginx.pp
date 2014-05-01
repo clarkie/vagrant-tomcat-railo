@@ -25,28 +25,25 @@ nginx::resource::vhost {
 		ssl_port => 443;
 }
 
-nginx::resource::location { 'css/branding':
-	ensure   => present,
-	www_root => '/var/www/CPM',
-	location => '/css/branding/',
-	vhost    => 'cp2.retailcloud.net',
-	ssl      => true,
-}
-
-nginx::resource::location { 'images/branding':
-	ensure   => present,
-	www_root => '/var/www/CPM',
-	location => '/images/branding/',
-	vhost    => 'cp2.retailcloud.net',
-	ssl      => true,
-}
-
-nginx::resource::location { 'favicon.ico':
-	ensure   => present,
-	www_root => '/var/www/CPM',
-	location => '/favicon.ico',
-	vhost    => 'cp2.retailcloud.net',
-	ssl      => true,
+nginx::resource::location {
+	'css/branding':
+		ensure   => present,
+		www_root => '/var/www/branding',
+		location => '/css/branding/',
+		vhost    => 'cp2.retailcloud.net',
+		ssl      => true;
+	'images/branding':
+		ensure   => present,
+		www_root => '/var/www/branding',
+		location => '/images/branding/',
+		vhost    => 'cp2.retailcloud.net',
+		ssl      => true;
+	'favicon.ico':
+		ensure   => present,
+		www_root => '/var/www/branding',
+		location => '/favicon.ico',
+		vhost    => 'cp2.retailcloud.net',
+		ssl      => true;
 }
 
 nginx::resource::location {
