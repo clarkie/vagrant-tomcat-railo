@@ -57,3 +57,16 @@ file { 'default.tomcat7':
 	notify	=> Service['tomcat7'],
 	content => 'JAVA_OPTS="-Djava.awt.headless=true -Xmx1024m -Xms256m -XX:+UseConcMarkSweepGC"'
 }
+
+file { 'default.tomcat7':
+	name	=> '/etc/ntp.conf',
+	owner	=> 'root',
+	group	=> 'root',
+	mode  => 644,
+	notify	=> Service['tomcat7'],
+	content => '
+		server 192.168.100.5
+		server ntp2.pipex.net
+		server ntp1.pipex.net
+'
+}
