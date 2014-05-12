@@ -54,6 +54,6 @@ file { 'default.tomcat7':
 	owner	=> 'root',
 	group	=> 'root',
 	mode  => 644,
-	source	=> '/vagrant/conf/default.tomcat7',
 	notify	=> Service['tomcat7'],
+	content => 'JAVA_OPTS="-Djava.awt.headless=true -Xmx1024m -Xms256m -XX:+UseConcMarkSweepGC"'
 }
