@@ -58,7 +58,7 @@ file { 'default.tomcat7':
 	content => 'JAVA_OPTS="-Djava.awt.headless=true -Xmx1024m -Xms256m -XX:+UseConcMarkSweepGC"'
 }
 
-file { 'default.tomcat7':
+file { 'ntp.conf':
 	name	=> '/etc/ntp.conf',
 	owner	=> 'root',
 	group	=> 'root',
