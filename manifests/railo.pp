@@ -1,7 +1,7 @@
 # railo.pp
 
 /* define the railo version you want here: */
-$railoVersion = "4.2.1.000"
+$railoVersion = "4.1.2.005"
 $warFileName = "railo-${railoVersion}.war"
 
 /* update all packages */
@@ -40,8 +40,8 @@ service { "tomcat7":
 }
 
 /* download the railo war */
-exec { "railo-download":
-  command => "/usr/bin/wget --quiet http://www.getrailo.org/railo/remote/download42/${railoVersion}/custom/all/${warFileName}",
+exec { "railo-download": 
+  command => "/usr/bin/wget --quiet http://www.getrailo.org/railo/remote/download/${railoVersion}/custom/all/${warFileName}",
   cwd => "/home/vagrant/",
   creates => "/home/vagrant/${warFileName}",
   require => Package['tomcat7'],
