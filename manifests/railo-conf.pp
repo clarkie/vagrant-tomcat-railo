@@ -49,13 +49,23 @@ file { 'railo-server.xml':
 	notify	=> Service['tomcat7'],
 }
 
-file { 'default.tomcat7':
-	name	=> '/etc/default/tomcat7',
+#file { 'default.tomcat7':
+#	name	=> '/etc/default/tomcat7',
+#	owner	=> 'root',
+#	group	=> 'root',
+#	mode  => 644,
+#	notify	=> Service['tomcat7'],
+#	content => 'JAVA_OPTS="-Djava.awt.headless=true -Xmx1024m -Xms256m -XX:+UseConcMarkSweepGC"'
+#}
+
+file { 'setenv.sh':
+	name => '/usr/share/tomcat7/bin/setenv.sh',
 	owner	=> 'root',
 	group	=> 'root',
 	mode  => 644,
 	notify	=> Service['tomcat7'],
-	content => 'JAVA_OPTS="-Djava.awt.headless=true -Xmx1024m -Xms256m -XX:+UseConcMarkSweepGC"'
+	content => 'JAVA_OPTS="-Xms128m -Xmx1024m -XX:MaxPermSize=384m -javaagent:webapps/railo/WEB-INF/lib/railo-inst.jar";
+export JAVA_OPTS;'
 }
 
 file { 'ntp.conf':
