@@ -16,7 +16,6 @@ Vagrant.configure("2") do |config|
 	config.vm.synced_folder "C:/_webroot/clientBranding/branches/dev/CPM", "/var/www/branding"
 	#config.vm.synced_folder "Z:/", "/var/client-filestore"
 	config.vm.synced_folder "C:/_webroot/password-lgk/trunk", "/usr/share/tomcat7/certs"
-	#config.vm.synced_folder "PATH TO MONITOR SOURCE CODE ON HOST MACHINE", "/var/www/monitor"
 
 	# settings for vm
 	config.vm.provider :virtualbox do |vb|
